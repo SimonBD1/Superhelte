@@ -1,5 +1,4 @@
-public class Superheroes {
-
+public class SuperheroDB {
     private String firstName;
     private String lastName;
     private String alias;
@@ -7,7 +6,7 @@ public class Superheroes {
     private double powerlvl;
     private boolean race;
 
-    public Superheroes (String firstName, String lastName, String alias, String powers, double powerlvl, boolean race){
+    public SuperheroDB (String firstName, String lastName, String alias, String powers, double powerlvl, boolean race){
         this.firstName=firstName;
         this.lastName=lastName;
         this.alias=alias;
@@ -16,22 +15,22 @@ public class Superheroes {
         this.race=race;
     }
 
-public String getFirstName () {
+    public String getFirstName () {
         return firstName;
-}
-public String getLastName () {
+    }
+    public String getLastName () {
         return lastName;
-}
-public String getAlias () {
+    }
+    public String getAlias () {
         return alias;
-}
-public String getPowers () {
+    }
+    public String getPowers () {
         return powers;
-}
-public double getPowerlvl(){
+    }
+    public double getPowerlvl(){
         return powerlvl;
-}
-public boolean getRace() {
+    }
+    public boolean getRace() {
         return race;
-}
+    }
 }
