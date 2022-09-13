@@ -40,8 +40,13 @@ public boolean getRace() {
         return race;
 }
 
+
+public void setRace(boolean race) {
+    this.race = race;
+}
+
     @Override
     public String toString() {
-        return firstName +"  "+ lastName +"  "+ alias+"  "+powers+"  "+yearOfOrigin+"  "+ powerlvl+"  "+race;
+        return firstName +" "+ lastName +" også kendt som "+ alias+"\n Superhelte kræfter: "+powers+"\n Først set i år "+yearOfOrigin+"\n og har et styrkeniveau på  "+ powerlvl+"\n Menneske status er = "+race+"\n---------";
     }
 }
