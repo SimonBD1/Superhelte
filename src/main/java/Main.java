@@ -13,7 +13,7 @@ public class Main {
 
         do {
         System.out.println("\nTast 1 for oprettelse af ny superhelt" +
-                "\nTast 5 for at finde allerede eksisterende superhelt" +
+                "\nTast 5 for at finde listen over allerede eksisterende superhelte" +
                 "\nTast 9 for at afslutte");
 
         int menuchoice = scanner.nextInt();
@@ -55,7 +55,8 @@ public class Main {
         superheroDB.createSuperHero(firstName, lastName, alias, powers, yearOfOrigin, powerlvl, race);
 
     } else if (menuchoice == 5) {
-        System.out.println("Indtast den superhelt du leder efter: ");
+        System.out.println("Her er listen over kendte superhelte: \n");
+        System.out.println(superheroDB.superheroes);
 
     } else if (menuchoice == 9) {
         System.exit(9);scanner.nextInt();
