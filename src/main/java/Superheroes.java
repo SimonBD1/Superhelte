@@ -42,6 +42,6 @@ public boolean getRace() {
 
     @Override
     public String toString() {
-        return firstName + lastName + alias+powers+yearOfOrigin+powerlvl+race;
+        return firstName +"  "+ lastName +"  "+ alias+"  "+powers+"  "+yearOfOrigin+"  "+ powerlvl+"  "+race;
     }
 }
