@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         boolean race = false;
         SuperheroDB superheroDB = new SuperheroDB();
+        superheroDB.createTestData();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Velkommen til superhelteverdenen:");
