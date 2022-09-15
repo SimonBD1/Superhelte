@@ -53,7 +53,7 @@ public class Superheroes {
 
     @Override
     public String toString() {
-        return  "\n" + firstName + ' ' + lastName + "Bedre kendt som " + alias + "\n Superkræfter er: " + powers +
+        return "\n" + firstName + ' ' + lastName + "Bedre kendt som " + alias + "\n Superkræfter er: " + powers +
                 "\n Først set" + yearOfOrigin +
                 "\n Styrkeniveau er på: " + powerlvl +
                 "\n Menneskestatus: " + raceCheck() +

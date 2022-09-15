@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class SuperheroDB {
     private ArrayList<Superheroes> superHeroesDB = new ArrayList<>();
 
