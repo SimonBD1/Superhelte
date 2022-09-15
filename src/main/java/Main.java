@@ -76,11 +76,9 @@ public class Main {
             } else if (menuchoice == 9) {
                 System.exit(9);
                 scanner.nextInt();
-                System.out.println("Afsluter progammet...");
+                System.out.println("Afslutter programmet...");
             }
         }
         while (true);
-
-
     }
 }

@@ -31,15 +31,5 @@ public class SuperheroDB {
                 , powers, yearOfOrigin, powerlvl, race);
 
         superHeroesDB.add(hero);
-
-
-        /*System.out.println("listen: ");
-
-        for (Object superheroes : superHeroesDB) {
-            System.out.println(superheroes);
-        }
-        System.out.println("-----------");
-        */
-
     }
 }
