@@ -1,50 +1,36 @@
 import java.util.Scanner;
 
 public class UserInterface {
-
     boolean race = false;
     SuperheroDB superheroDB = new SuperheroDB();
     Scanner scanner = new Scanner(System.in);
 
-    public void start() {
-        printWelcome();
-    }
-
-    public void printWelcome() {
+    public void startProgram() {
         superheroDB.createTestData();
         System.out.println("Velkommen til superhelteverdenen:");
+        do {
+            startpage();
+            int menuchoice = scanner.nextInt();
+            if (menuchoice == 1) {
+                createSuperHero();
+            } else if (menuchoice == 2) {
+                searchSuperHero();
+            } else if (menuchoice == 5) {
+                printAllSuperhero();
+            } else if (menuchoice == 9) {
+                closeprogram();
+            }
+        } while (true);
+    }
+
+    public void startpage() {
         System.out.println("\nTast 1 for oprettelse af ny superhelt" + "\nTast 2 for at søge efter superhelt" +
                 "\nTast 5 for at finde hele listen af eksisterende superhelte" +
                 "\nTast 9 for at afslutte");
-
-        int menuchoice = scanner.nextInt();
-        scanner.nextLine();
-        handleMenuInput(menuchoice);
-    }
-
-    public void handleMenuInput(int menuInput) {
-        switch (menuInput) {
-            case 1:
-                createSuperHero();
-                break;
-            case 2:
-                searchSuperHero();
-                break;
-            case 5:
-                printAllSuperhero();
-                break;
-            case 9:
-                System.out.println("Afslutter programmet...");
-                System.exit(9);
-                break;
-            default:
-                System.out.println("Ugyldigt input\n");
-                printWelcome();
-                break;
-        }
     }
 
     public void createSuperHero() {
+        scanner.nextLine();
         System.out.println("Indtast fornavn på Superhelt: ");
         String firstName = scanner.nextLine();
 
@@ -82,6 +68,7 @@ public class UserInterface {
     }
 
     public void printAllSuperhero() {
+
         System.out.println(superheroDB.getSuperHeroesDB());
     }
 
@@ -100,5 +87,10 @@ public class UserInterface {
             System.out.println("Styrkeniveau er oppe på: " + Found.getPowerlvl());
             System.out.println("Menneske status: " + Found.raceCheck());
         }
+    }
+
+    public void closeprogram() {
+        System.out.println("Lukker programmet...");
+        System.exit(9);
     }
 }

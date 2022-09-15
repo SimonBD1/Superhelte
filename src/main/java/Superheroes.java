@@ -51,6 +51,15 @@ public class Superheroes {
         this.race = race;
     }
 
+    @Override
+    public String toString() {
+        return  "\n" + firstName + ' ' + lastName + "Bedre kendt som " + alias + "\n Superkræfter er: " + powers +
+                "\n Først set" + yearOfOrigin +
+                "\n Styrkeniveau er på: " + powerlvl +
+                "\n Menneskestatus: " + raceCheck() +
+                "\n---------";
+    }
+
     public String raceCheck() {
         if (race == true) {
             return "Menneskelig";
