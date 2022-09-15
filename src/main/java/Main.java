@@ -70,8 +70,8 @@ public class Main {
                     System.out.println("også kendt som " + Found.getAlias());
                     System.out.println("Først set i år " + Found.getYearOfOrigin());
                     System.out.println("Superhelte kræfter indebærer: " + Found.getPowers());
+                    System.out.println("Styrkeniveau er oppe på: "+Found.getPowerlvl());
                     System.out.println("Menneske status: " + Found.raceCheck());
-                    ;
                 }
             } else if (menuchoice == 9) {
                 System.exit(9);
