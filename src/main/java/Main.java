@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Set;
 
 public class Main {
 
@@ -7,14 +6,15 @@ public class Main {
         boolean race = false;
         SuperheroDB superheroDB = new SuperheroDB();
         Scanner scanner = new Scanner(System.in);
+        superheroDB.createTestData();
 
         System.out.println("Velkommen til superhelteverdenen:");
 
 
         do {
-        System.out.println("\nTast 1 for oprettelse af ny superhelt" +
-                "\nTast 5 for at finde allerede eksisterende superhelt" +
-                "\nTast 9 for at afslutte");
+            System.out.println("\nTast 1 for oprettelse af ny superhelt" + "\nTast 2 for at søge efter superhelt" +
+                    "\nTast 5 for at finde hele listen af eksisterende superhelte" +
+                    "\nTast 9 for at afslutte");
 
             int menuchoice = scanner.nextInt();
 
@@ -56,8 +56,23 @@ public class Main {
                 superheroDB.createSuperHero(firstName, lastName, alias, powers, yearOfOrigin, powerlvl, race);
 
             } else if (menuchoice == 5) {
-                System.out.println(superheroDB.getSuperheroes());
+                System.out.println(superheroDB.getSuperHeroesDB());
+            } else if (menuchoice == 2) {
 
+                System.out.println("Søg efter superhelt:");
+                String searchTerm = scanner.next();
+                Superheroes Found = superheroDB.searchFor(searchTerm);
+                if (Found == null) {
+                    System.out.println("Intet resultat");
+                } else {
+                    System.out.print(Found.getFirstName() + " ");
+                    System.out.println(Found.getLastName());
+                    System.out.println("også kendt som " + Found.getAlias());
+                    System.out.println("Først set i år " + Found.getYearOfOrigin());
+                    System.out.println("Superhelte kræfter indebærer: " + Found.getPowers());
+                    System.out.println("Menneske status: " + Found.raceCheck());
+                    ;
+                }
             } else if (menuchoice == 9) {
                 System.exit(9);
                 scanner.nextInt();
@@ -65,5 +80,7 @@ public class Main {
             }
         }
         while (true);
+
+
     }
 }

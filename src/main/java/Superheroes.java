@@ -59,9 +59,9 @@ public class Superheroes {
         }
     }
 
-    @Override
+   /* @Override
     public String toString() {
 
         return "\n" + firstName + " " + lastName + " også kendt som " + alias + "\n Superhelte kræfter: " + powers + "\n Først set i år " + yearOfOrigin + "\n og har et styrkeniveau på  " + powerlvl + "\n Menneske status er = " + raceCheck() + "\n---------";
-    }
+    }*/
 }
