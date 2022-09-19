@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -17,16 +18,24 @@ public class UserInterface {
                 searchSuperHero();
             } else if (menuchoice == 5) {
                 printAllSuperhero();
-            } else if (menuchoice == 9) {
+            }else if (menuchoice== 3){
+                editSuperhero();
+            }
+            else if (menuchoice == 9) {
                 closeprogram();
             }
         } while (true);
     }
 
     public void startpage() {
-        System.out.println("\nTast 1 for oprettelse af ny superhelt" + "\nTast 2 for at søge efter superhelt" +
-                "\nTast 5 for at finde hele listen af eksisterende superhelte" +
-                "\nTast 9 for at afslutte");
+        System.out.println(
+                """
+
+                        Tast 1 for oprettelse af ny superhelt
+                        Tast 2 for at søge efter superhelt
+                        Tast 3 for at redigere i en superhelt
+                        Tast 5 for at finde hele listen af eksisterende superhelte
+                        Tast 9 for at afslutte""");
     }
 
     public void createSuperHero() {
@@ -63,7 +72,6 @@ public class UserInterface {
             race = false;
         }
 
-
         superheroDB.createSuperHero(firstName, lastName, alias, powers, yearOfOrigin, powerlvl, race);
     }
 
@@ -75,18 +83,25 @@ public class UserInterface {
     public void searchSuperHero() {
         System.out.println("Søg efter superhelt:");
         String searchTerm = scanner.next();
-        Superheroes Found = superheroDB.searchFor(searchTerm);
-        if (Found == null) {
+        ArrayList<Superheroes> searchResults = superheroDB.searchSuperhero(searchTerm);
+        if (searchResults.isEmpty()) {
             System.out.println("Intet resultat fundet med søgekriterierne: " + searchTerm);
         } else {
-            System.out.print(Found.getFirstName() + " ");
-            System.out.println(Found.getLastName());
-            System.out.println("også kendt som " + Found.getAlias());
-            System.out.println("Først set i år " + Found.getYearOfOrigin());
-            System.out.println("Superhelte kræfter indebærer: " + Found.getPowers());
-            System.out.println("Styrkeniveau er oppe på: " + Found.getPowerlvl());
-            System.out.println("Menneske status: " + Found.raceCheck());
+            for (Superheroes found : searchResults) {
+                System.out.print(found.getFirstName() + " ");
+                System.out.println(found.getLastName());
+                System.out.println("også kendt som " + found.getAlias());
+                System.out.println("Først set i år " + found.getYearOfOrigin());
+                System.out.println("Superhelte kræfter indebærer: " + found.getPowers());
+                System.out.println("Styrkeniveau er oppe på: " + found.getPowerlvl());
+                System.out.println("Menneske status: " + found.raceCheck());
+                System.out.println(" ");
+            }
         }
+    }
+    public void editSuperhero () {
+        System.out.println("Vælg den superhelt du vil redigere: ");
+        System.out.println(superheroDB.getSuperHeroesDB());
     }
 
     public void closeprogram() {
