@@ -113,21 +113,37 @@ public class UserInterface {
             System.out.println("Redigere superhelt information: " + editHero);
 
             do {
-                    System.out.println("Indskriv ny data. Vil du ikke redigiere tryk Enter.");
+                System.out.println("Indskriv ny data. Vil du ikke redigiere tryk Enter.");
                 System.out.println("Navn: " + editHero.getFirstName());
                 String newName = scanner.nextLine();
                 if (!newName.isEmpty())
                     try {
                         editHero.setFirstName(newName);
-                        writingError=false;
+                        writingError = false;
                     } catch (NumberFormatException e) {
                         System.out.println("Fejl, brug ikke numre i navn!");
-                        writingError=true;
+                        writingError = true;
                     }
 
 
-            } while (writingError==true);
+            } while (writingError == true);
+
+            System.out.println("Oprindelses år: " + editHero.getYearOfOrigin());
+            do {
+                String newYearOfOrigin = scanner.nextLine();
+                if (!newYearOfOrigin.isEmpty()) {
+                    try {
+                        editHero.setYearOfOrigin(Integer.parseInt(newYearOfOrigin));
+                        writingError = false;
+                    } catch (NumberFormatException nfe) {
+                        System.out.println("Skriv den nye værdi kun i tal");
+                        writingError = true;
+                    }
+                }
+
+            } while (writingError == true);
         }
+
     }
 
     public void closeprogram() {

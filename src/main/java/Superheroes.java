@@ -21,8 +21,9 @@ public class Superheroes {
     public String getFirstName() {
         return firstName;
     }
-    public void setFirstName(String newName){
-        this.firstName=newName;
+
+    public void setFirstName(String newName) {
+        this.firstName = newName;
     }
 
     public String getLastName() {
@@ -39,6 +40,9 @@ public class Superheroes {
 
     public int getYearOfOrigin() {
         return yearOfOrigin;
+    }
+    public void setYearOfOrigin(int newYearOfOrigin) {
+        this.yearOfOrigin= Integer.parseInt(String.valueOf(newYearOfOrigin));
     }
 
     public double getPowerlvl() {
