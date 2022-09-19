@@ -18,10 +18,9 @@ public class UserInterface {
                 searchSuperHero();
             } else if (menuchoice == 5) {
                 printAllSuperhero();
-            }else if (menuchoice== 3){
+            } else if (menuchoice == 3) {
                 editSuperhero();
-            }
-            else if (menuchoice == 9) {
+            } else if (menuchoice == 9) {
                 closeprogram();
             }
         } while (true);
@@ -99,9 +98,36 @@ public class UserInterface {
             }
         }
     }
-    public void editSuperhero () {
-        System.out.println("Vælg den superhelt du vil redigere: ");
-        System.out.println(superheroDB.getSuperHeroesDB());
+
+    public void editSuperhero() {
+        boolean writingError = false;
+        {
+            System.out.println("Vælg den superhelt du vil redigere: ");
+            for (int i = 0; i < superheroDB.getSuperHeroesDB().size(); i++) {
+                System.out.println(i + 1 + ")" + superheroDB.getSuperHeroesDB().get(i));
+            }
+            System.out.println("Indtast nummeret på den valgte superhelt: ");
+            int number = scanner.nextInt();
+            scanner.nextLine();
+            Superheroes editHero = superheroDB.getSuperHeroesDB().get(number - 1);
+            System.out.println("Redigere superhelt information: " + editHero);
+
+            do {
+                    System.out.println("Indskriv ny data. Vil du ikke redigiere tryk Enter.");
+                System.out.println("Navn: " + editHero.getFirstName());
+                String newName = scanner.nextLine();
+                if (!newName.isEmpty())
+                    try {
+                        editHero.setFirstName(newName);
+                        writingError=false;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Fejl, brug ikke numre i navn!");
+                        writingError=true;
+                    }
+
+
+            } while (writingError==true);
+        }
     }
 
     public void closeprogram() {
