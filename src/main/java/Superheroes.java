@@ -29,6 +29,9 @@ public class Superheroes {
     public String getLastName() {
         return lastName;
     }
+    public void setLastName(String LName){
+        this.lastName=LName;
+    }
 
     public String getAlias() {
         return alias;
