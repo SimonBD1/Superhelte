@@ -18,6 +18,7 @@ public class Superheroes {
         this.race = race;
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -26,40 +27,60 @@ public class Superheroes {
         this.firstName = newName;
     }
 
+
     public String getLastName() {
         return lastName;
     }
-    public void setLastName(String LName){
-        this.lastName=LName;
+
+    public void setLastName(String LName) {
+        this.lastName = LName;
     }
+
 
     public String getAlias() {
         return alias;
     }
 
+    public void setAlias(String newAlias) {
+        this.alias = newAlias;
+    }
+
+
     public String getPowers() {
         return powers;
     }
 
+    public void setPowers(String newPowers) {
+        this.powers = newPowers;
+    }
+
+
     public int getYearOfOrigin() {
         return yearOfOrigin;
     }
+
     public void setYearOfOrigin(int newYearOfOrigin) {
-        this.yearOfOrigin= Integer.parseInt(String.valueOf(newYearOfOrigin));
+        this.yearOfOrigin = Integer.parseInt(String.valueOf(newYearOfOrigin));
     }
+
 
     public double getPowerlvl() {
         return powerlvl;
     }
 
+    public void setPowerlvl(double newPowerlvl) {
+        this.powerlvl = newPowerlvl;
+    }
+
+
     public boolean getRace() {
         return race;
     }
 
-
-    public void setRace(boolean race) {
-        this.race = race;
+    public void setRace(boolean newRace) {
+        this.race = newRace;
     }
+
 
     @Override
     public String toString() {
@@ -74,7 +95,7 @@ public class Superheroes {
         if (race == true) {
             return "Menneskelig";
         } else {
-            return "Ikke menneskelig";
+            return "Ikke menneskelig/alien";
         }
     }
 }

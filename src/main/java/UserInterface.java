@@ -155,16 +155,29 @@ public class UserInterface {
 
         System.out.println("Redigere superhelt information: " + editHero);
         System.out.println("Indskriv ny data. Vil du ikke redigiere tryk Enter.");
+
         System.out.println("Navn: " + editHero.getFirstName());
         String newName = scanner.nextLine();
         if (!newName.isEmpty())
             editHero.setFirstName(newName);
 
+
         System.out.println("Efternavn: " + editHero.getLastName());
         String newLName = scanner.nextLine();
-
         if (!newLName.isEmpty())
             editHero.setLastName(newLName);
+
+
+        System.out.println("Alias: " + editHero.getAlias());
+        String newAlias = scanner.nextLine();
+        if (!newAlias.isEmpty())
+            editHero.setAlias(newAlias);
+
+        System.out.println("Superkræfter: " + editHero.getPowers());
+        String newPowers = scanner.nextLine();
+        if (!newPowers.isEmpty())
+            editHero.setPowers(newPowers);
+
 
         System.out.println("Oprindelses år: " + editHero.getYearOfOrigin());
         do {
@@ -180,7 +193,44 @@ public class UserInterface {
             }
 
         } while (writingError == true);
+
+        System.out.println("Nyt styrkeniveau: " + editHero.getPowerlvl());
+        do {
+            String newPowerlvl = scanner.nextLine().trim();
+            if (!newPowerlvl.isEmpty()) {
+                try {
+                    editHero.setPowerlvl(Double.parseDouble(newPowerlvl));
+                    writingError = false;
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Skriv den nye værdi kun i tal");
+                    writingError = true;
+                }
+            }
+
+        } while (writingError == true);
+
+        System.out.println("Menneskestatus: " + editHero.raceCheck());
+        String newRace = scanner.nextLine();
+
+        if (!newRace.isEmpty()) {
+            while (!newRace.equals("n") && !newRace.equals("y")) {
+                System.out.println("Fejl. Tast \"j\" eller \"n\". ");
+                newRace = scanner.nextLine();
+            }
+
+            boolean race;
+            if (newRace.equals("j")) {
+                race = true;
+            } else {
+                race = false;
+            }
+            editHero.setRace(race);
+        }
+
+
+
     }
+
 
     public void closeprogram() {
         System.out.println("Lukker programmet...");
