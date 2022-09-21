@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -9,20 +10,32 @@ public class UserInterface {
     public void startProgram() {
         superheroDB.createTestData();
         System.out.println("Velkommen til superhelteverdenen:");
+        boolean menuError = false;
         do {
-            startpage();
-            int menuchoice = scanner.nextInt();
-            if (menuchoice == 1) {
-                createSuperHero();
-            } else if (menuchoice == 2) {
-                searchSuperHero();
-            } else if (menuchoice == 5) {
-                printAllSuperhero();
-            } else if (menuchoice == 3) {
-                editSuperhero();
-            } else if (menuchoice == 9) {
-                closeprogram();
-            }
+            do {
+                startpage();
+                try {
+                    int menuchoice = scanner.nextInt();
+                    if (menuchoice == 1) {
+                        createSuperHero();
+                    } else if (menuchoice == 2) {
+                        searchSuperHero();
+                    } else if (menuchoice == 5) {
+                        printAllSuperhero();
+                    } else if (menuchoice == 3) {
+                        editSuperhero();
+                    } else if (menuchoice == 9) {
+                        closeprogram();
+                    }
+                    menuError = false;
+                } catch (InputMismatchException ime) {
+                    System.out.println("Hey indtast tal makker");
+                    scanner.nextLine();
+                    menuError = true;
+                }
+
+
+            } while (menuError==true);
         } while (true);
     }
 
@@ -38,6 +51,7 @@ public class UserInterface {
     }
 
     public void createSuperHero() {
+        Boolean writingError = false;
         scanner.nextLine();
         System.out.println("Indtast fornavn på Superhelt: ");
         String firstName = scanner.nextLine();
@@ -51,9 +65,19 @@ public class UserInterface {
         System.out.println("Indtast Superhelte kræfter: ");
         String powers = scanner.nextLine();
 
-        System.out.println("indtast oprindelsesår");
-        int yearOfOrigin = scanner.nextInt();
+        int yearOfOrigin = 0;
+        do {
+            try {
+                System.out.println("indtast oprindelsesår");
+                scanner.nextLine();
+                yearOfOrigin = scanner.nextInt();
+                writingError = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Skriv kun numre!");
+                writingError = false;
 
+            }
+        } while (writingError == false);
         System.out.println("Indtast styrkeniveau:  ");
         double powerlvl = scanner.nextDouble();
 
@@ -130,7 +154,7 @@ public class UserInterface {
 
             System.out.println("Oprindelses år: " + editHero.getYearOfOrigin());
             do {
-                String newYearOfOrigin = scanner.nextLine();
+                String newYearOfOrigin = scanner.nextLine().trim();
                 if (!newYearOfOrigin.isEmpty()) {
                     try {
                         editHero.setYearOfOrigin(Integer.parseInt(newYearOfOrigin));

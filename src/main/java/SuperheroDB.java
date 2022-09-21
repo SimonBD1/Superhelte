@@ -23,11 +23,16 @@ public class SuperheroDB {
         }return searchResult;
     }
 
-    public void createSuperHero(String firstName, String lastName, String alias, String powers, int yearOfOrigin, double powerlvl, boolean race) {
+    public Superheroes createSuperHero(String firstName, String lastName, String alias, String powers, int yearOfOrigin, double powerlvl, boolean race) {
 
         Superheroes hero = new Superheroes(firstName, lastName, alias
                 , powers, yearOfOrigin, powerlvl, race);
 
         superHeroesDB.add(hero);
+        return hero;
+    }
+    public boolean deleteSuperheroes (Superheroes superheroes) {
+        boolean success=true;
+        return success;
     }
 }
