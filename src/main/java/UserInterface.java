@@ -244,7 +244,7 @@ public class UserInterface {
             }
             System.out.println("Vælg den superhelt du vil slette: ");
             int superheroPick=1;
-            boolean errorInput = false;
+           // boolean errorInput = false;
             superheroPick=Integer.parseInt(scanner.nextLine());
             Superheroes deleteSuperhero = searchresults.get(superheroPick-1);
 
