@@ -16,6 +16,7 @@ public class SuperheroDB {
 
     public ArrayList<Superheroes> searchSuperhero(String searchTerm) {
         ArrayList<Superheroes> searchResult = new ArrayList<>();
+
         for (Superheroes superheroes : superHeroesDB) {
             if (superheroes.getFirstName().toLowerCase().contains(searchTerm.toLowerCase())) {
                 searchResult.add(superheroes);
@@ -32,6 +33,7 @@ public class SuperheroDB {
         return hero;
     }
     public boolean deleteSuperheroes (Superheroes superheroes) {
+        getSuperHeroesDB().remove(superheroes);
         boolean success=true;
         return success;
     }

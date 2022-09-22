@@ -20,10 +20,12 @@ public class UserInterface {
                         createSuperHero();
                     } else if (menuchoice == 2) {
                         searchSuperHero();
-                    } else if (menuchoice == 5) {
-                        printAllSuperhero();
                     } else if (menuchoice == 3) {
                         editSuperhero();
+                    } else if (menuchoice == 4) {
+                        deleteSuperheroes();
+                    } else if (menuchoice == 5) {
+                        printAllSuperhero();
                     } else if (menuchoice == 9) {
                         closeprogram();
                     }
@@ -46,6 +48,7 @@ public class UserInterface {
                         Tast 1) for oprettelse af ny superhelt
                         Tast 2) for at søge efter superhelt
                         Tast 3) for at redigere i en superhelt
+                        Tast 4) for at slette en superhelt i databasen
                         Tast 5) for at finde hele listen af eksisterende superhelte
                         Tast 9) for at afslutte""");
     }
@@ -226,12 +229,29 @@ public class UserInterface {
             }
             editHero.setRace(race);
         }
-
-
-
     }
 
+    public void deleteSuperheroes (){
+        String searchTerm = scanner.nextLine();
+        ArrayList <Superheroes> searchresults = superheroDB.searchSuperhero(searchTerm);
 
+        if (searchresults.isEmpty()){
+            System.out.println("Ingen resultater fundet med søgeterm: "+searchTerm);
+        } else {
+            int index=1;
+            for (Superheroes searchResults : searchresults) {
+                System.out.println(index++ + ") "+searchResults.getFirstName());
+            }
+            System.out.println("Vælg den superhelt du vil slette: ");
+            int superheroPick=1;
+            boolean errorInput = false;
+            superheroPick=Integer.parseInt(scanner.nextLine());
+            Superheroes deleteSuperhero = searchresults.get(superheroPick-1);
+
+            superheroDB.deleteSuperheroes(deleteSuperhero);
+            System.out.println(deleteSuperhero.getFirstName()+" er nu slettet fra databasen");
+        }
+    }
     public void closeprogram() {
         System.out.println("Lukker programmet...");
         System.exit(9);
