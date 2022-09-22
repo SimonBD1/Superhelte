@@ -21,7 +21,11 @@ public class SuperheroDB {
             if (superheroes.getFirstName().toLowerCase().contains(searchTerm.toLowerCase())) {
                 searchResult.add(superheroes);
             }
-        }return searchResult;
+            if (superheroes.getLastName().toLowerCase().contains(searchTerm.toLowerCase())) {
+                searchResult.add(superheroes);
+            }
+        }
+        return searchResult;
     }
 
     public Superheroes createSuperHero(String firstName, String lastName, String alias, String powers, int yearOfOrigin, double powerlvl, boolean race) {
@@ -32,9 +36,10 @@ public class SuperheroDB {
         superHeroesDB.add(hero);
         return hero;
     }
-    public boolean deleteSuperheroes (Superheroes superheroes) {
+
+    public boolean deleteSuperheroes(Superheroes superheroes) {
         getSuperHeroesDB().remove(superheroes);
-        boolean success=true;
+        boolean success = true;
         return success;
     }
 }
