@@ -217,7 +217,7 @@ public class UserInterface {
 
         if (!newRace.isEmpty()) {
             while (!newRace.equals("n") && !newRace.equals("y")) {
-                System.out.println("Fejl. Tast \"j\" eller \"n\". ");
+                System.out.println("Fejl. Tast \"y\" eller \"n\". ");
                 newRace = scanner.nextLine();
             }
 
