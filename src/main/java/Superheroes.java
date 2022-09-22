@@ -1,3 +1,4 @@
+@SuppressWarnings("ALL")
 public class Superheroes {
 
     private String firstName;

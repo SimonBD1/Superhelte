@@ -68,9 +68,11 @@ public class UserInterface {
         System.out.println("Indtast Superhelte kræfter: ");
         String powers = scanner.nextLine();
 
+
         int yearOfOrigin = 0;
         do {
             try {
+                scanner.nextLine();
                 System.out.println("indtast oprindelsesår");
                 yearOfOrigin = scanner.nextInt();
                 writingError = true;
@@ -118,6 +120,7 @@ public class UserInterface {
                 System.out.println("Superhelte kræfter indebærer: " + found.getPowers());
                 System.out.println("Styrkeniveau er oppe på: " + found.getPowerlvl());
                 System.out.println("Menneske status: " + found.raceCheck());
+                System.out.println("\n");
             }
         }
     }
@@ -133,7 +136,7 @@ public class UserInterface {
         }
 
         System.out.println("Indtast nummeret på den valgte superhelt: ");
-        int number = 0;
+        int number;
         Superheroes editHero = null;
         do {
             try {
