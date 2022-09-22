@@ -65,6 +65,7 @@ public class UserInterface {
         System.out.println("Indtast alias hvis har et: ");
         String alias = scanner.nextLine();
 
+
         System.out.println("Indtast Superhelte kræfter: ");
         String powers = scanner.nextLine();
 
@@ -72,7 +73,6 @@ public class UserInterface {
         do {
             try {
                 System.out.println("indtast oprindelsesår");
-                scanner.nextLine();
                 yearOfOrigin = scanner.nextInt();
                 writingError = true;
             } catch (InputMismatchException e) {
@@ -88,7 +88,7 @@ public class UserInterface {
 
         String answer = scanner.next();
         while (!answer.equals("y") && !answer.equals("n")) {
-            System.out.println("Ugyldig indtastning\ny/n, tak");
+            System.out.println("Ugyldig indtastning  y/n, tak");
             answer = scanner.next();
 
         }
